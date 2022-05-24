@@ -81,19 +81,12 @@ sudo docker-compose up -d
 
 修改 [docker-compose](docker-compose.yml) 文件中冲突的端口，然后再启动容器
 
-#### 本项目运行后还有安装向导吗？  
-有，且数据库连接仍然需配置  
 ### 使用说明
 
 启动应用后，本地浏览器访问 URL: *`http://服务器公网IP:端口`* 进入应用。  
 
 下面是使用过程中可能需要的信息
 
-#### 服务和端口
-
-| 名称 | 端口号 | 用途 |  必要性 |
-| --- | --- | --- | --- |
-| joomla-server | 9001 | 浏览器访问 Joomla | Y |
 ## 文档
 
 [Joomla 管理员手册](https://support.websoft9.com/docs/joomla)

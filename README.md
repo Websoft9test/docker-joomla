@@ -75,19 +75,12 @@ Yes, you should modify all database password and application password at docker-
 #### Docker runing failed for the reason that port conflict?
 You should modify ports at [docker-compose file](docker-compose-production.yml) and docker-compose again
 
-#### Does installation wizard exist?  
-Yes, you always need to configure database  
 ### Usage instructions
 
 You can point your browser to: *`http://Instance's Internet IP:port`*  
 
 The following is the information that may be needed during use
 
-#### Services and Ports
-
-| Service | Port | Use |  Necessity |
-| --- | --- | --- | --- |
-| joomla-server | 9001 | Browser access to Joomla Document by http | Y |
 ## Documentation
 
 [Joomla Administrator Guide](https://support.websoft9.com/docs/joomla)
