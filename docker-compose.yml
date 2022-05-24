@@ -14,10 +14,6 @@ services:
     environment:
       - JOOMLA_USERNAME=$APP_USER
       - JOOMLA_PASSWORD=$APP_PASSWORD
-      - JOOMLA_EMAIL=$APP_EMAIL
-      - JOOMLA_SITE_NAME=$APP_SITENAME
-      - JOOMLA_LOAD_SAMPLE_DATA=yes
-      - JOOMLA_SKIP_BOOTSTRAP=no
       - JOOMLA_DATABASE_TYPE=mysqli
       - JOOMLA_DATABASE_HOST=db
       - JOOMLA_DATABASE_PORT_NUMBER=3306
@@ -27,9 +23,10 @@ services:
       - PHP_MEMORY_LIMIT=512M
     depends_on:
       - db
+
   db:
     image: mysql:$DB_MYSQL_VERSION
-    container_name: $APP_NAME-db
+    container_name: $APP_NAME-db1
     restart: always
     ports:
      - ${DB_MYSQL_PORT}:3306
