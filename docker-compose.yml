@@ -20,7 +20,7 @@ services:
       - JOOMLA_DATABASE_USER=$DB_MARIADB_USER
       - JOOMLA_DATABASE_PASSWORD=$DB_MARIADB_PASSWORD
     depends_on:
-      - db
+      - mariadb
 
   mariadb:
     image: mariadb:$DB_MARIADB_VERSION
