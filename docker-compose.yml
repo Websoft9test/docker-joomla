@@ -12,32 +12,30 @@ services:
     volumes:
       - joomla:/bitnami/joomla
     environment:
-      - JOOMLA_USERNAME=$APP_USER
+      - JOOMLA_USERNAME=$APP_USER	
       - JOOMLA_PASSWORD=$APP_PASSWORD
-      - JOOMLA_DATABASE_TYPE=mysqli
-      - JOOMLA_DATABASE_HOST=db
+      - JOOMLA_DATABASE_HOST=mariadb
       - JOOMLA_DATABASE_PORT_NUMBER=3306
-      - JOOMLA_DATABASE_NAME=$DB_MYSQL_NAME
-      - JOOMLA_DATABASE_USER=$DB_MYSQL_USER
-      - JOOMLA_DATABASE_PASSWORD=$DB_MYSQL_PASSWORD
-      - PHP_MEMORY_LIMIT=512M
+      - JOOMLA_DATABASE_NAME=$DB_MARIADB_NAME
+      - JOOMLA_DATABASE_USER=$DB_MARIADB_USER
+      - JOOMLA_DATABASE_PASSWORD=$DB_MARIADB_PASSWORD
     depends_on:
       - db
 
-  db:
-    image: mysql:$DB_MYSQL_VERSION
-    container_name: $APP_NAME-db1
+  mariadb:
+    image: mariadb:$DB_MARIADB_VERSION
+    container_name: $APP_NAME-db
     restart: always
     ports:
-     - ${DB_MYSQL_PORT}:3306
+     - ${DB_MARIADB_PORT}:3306
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
-      - mysql:/var/lib/mysql
+      - mariadb:/var/lib/mysql
     environment:
-      - MYSQL_DATABASE=$DB_MYSQL_NAME
-      - MYSQL_USER=$DB_MYSQL_USER
-      - MYSQL_PASSWORD=$DB_MYSQL_PASSWORD
-      - MYSQL_ROOT_PASSWORD=$DB_MYSQL_PASSWORD
+      - MARIADB_DATABASE=$DB_MARIADB_NAME
+      - MARIADB_USER=$DB_MARIADB_USER
+      - MARIADB_PASSWORD=$DB_MARIADB_PASSWORD
+      - MARIADB_ROOT_PASSWORD=$DB_MARIADB_PASSWORD
 
 networks:
   default:
@@ -45,4 +43,4 @@ networks:
 
 volumes:
   joomla:
-  mysql:
+  mariadb:
