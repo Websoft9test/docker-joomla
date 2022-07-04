@@ -38,7 +38,8 @@ services:
       - MARIADB_ROOT_PASSWORD=$DB_MARIADB_PASSWORD
 networks:
   default:
-      name: $APP_NAME
+    name: ${APP_NETWORK}
+    external: true
 
 volumes:
   joomla:
